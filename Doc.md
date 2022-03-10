@@ -1,5 +1,6 @@
 # Curso de php enfocado en la web y elmprtocolo HTTP
-
+# Usaremos el stack LAMP (Linux, Apache, MySQL, PHP) 
+    
     PHP es un lenguaje con el cual se puede hacer cuaquier tipo de programa.
 
     1 Descargar y ejecutar xampp
