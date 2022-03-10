@@ -1,3 +1,35 @@
+body{
+   background: rgb(59, 55, 55);
+   /* color: #fff; */
+}
 .navbar img{
     width: 1.5rem;
+}
+
+.s-card{
+ width: 100%;
+ height: auto;
+ padding: .5rem;
+ border: 1px solid black;
+ background: rgb(33, 37, 49);
+}
+
+.s-card pre{
+    color: rgb(150, 180, 235);
+    margin: 0;
+}
+
+.s-card code{
+    color: #fff;    
+    /* margin-left: 0; */
+}
+
+.img-box{
+    width: 70vw;
+    height: auto;
+    margin: auto;
+}
+.img-box img{
+    width: 100%;
+    height: auto;
 }

@@ -87,6 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <li class="nav-item">
             <a class="nav-link" href="./contacts-add.php">Add Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./security-notes.html">Security Notes</a>
+          </li>
         </ul>
       </div>
     </div>

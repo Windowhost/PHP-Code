@@ -54,10 +54,13 @@ if (file_exists("contacts.json")) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/contacts-app/index.php">Home</a>
+            <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./contacts-add.php">Add Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="security-notes.html">Security Notes</a>
           </li>
         </ul>
       </div>
@@ -71,9 +74,9 @@ if (file_exists("contacts.json")) {
 
         <!-- This logic creates a welcome card if there are no contacts -->
         <?php if (count($contacts) == 0) : ?>
-          <div class="col-md-4 mx-auto">
-            <div class="card card-body text-center">
-              <p>No contacts saved yet</p>
+          <div class="col-md-4 mx-auto ">
+            <div class="card card-body text-center bg-info">
+              <h3>No contacts saved yet</h3>
               <a href="contacts-add.php ">Add One!</a>
             </div>
           </div>
