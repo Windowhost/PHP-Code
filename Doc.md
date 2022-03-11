@@ -100,4 +100,5 @@
     mysql -i root -p
 
 
+# CONEXIONES ENTRE PHP Y MYSQL
 

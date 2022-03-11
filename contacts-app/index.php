@@ -1,21 +1,12 @@
 <?php
-# Declaring a php dict for contacts. (just test)
+# AQUI ya estaremos haciendo uso de los dataos que vienen de la base de datos
+require "database.php";
+#Usando los datos de la tabla contactos
+$contacts = $conn->query("SELECT * FROM contacts");
 
-// $contacts = [
-//   ["name" => "Pedeo", "phon_number" => "+4344421212"],
-//   ["name" => "Julio", "phon_number" => "+4444421212"],
-//   ["name" => "Maria", "phon_number" => "+4544421212"],
-//   ["name" => "Lucas", "phon_number" => "+4644421212"],
-//   ["name" => "Julian", "phon_number" => "+4744421212"],
-// ]; 
-
-# This php logic creates the json when adding a contact.
-if (file_exists("contacts.json")) {
-  $contacts = json_decode(file_get_contents("contacts.json"), true);
-} else {
-  $contacts = [];
-}
-
+# Esto solo arroja en el indes la variable $contacts
+// var_dump($contacts);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +64,7 @@ if (file_exists("contacts.json")) {
       <div class="row">
 
         <!-- This logic creates a welcome card if there are no contacts -->
-        <?php if (count($contacts) == 0) : ?>
+        <?php if ($contacts->rowCount() == 0) : ?>
           <div class="col-md-4 mx-auto ">
             <div class="card card-body text-center bg-info">
               <h3>No contacts saved yet</h3>

@@ -2,6 +2,7 @@
 -- Ejecucion
 -- ir al la capeta sql por consola
 -- mysql -u root -p
+-- Para la ejecucin de este comando hay que estar situado en la carpeta sql
 -- source setup.sql
 
 -- Si la DB existe borrala
@@ -9,7 +10,6 @@ DROP DATABASE IF EXISTS contacts_app;
 
 -- Crea la base de datos
 CREATE DATABASE contacts_app;
-CREATE DATABASE test_db;
 
 -- Usa esta  DB
 USE contacts_app;

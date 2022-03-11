@@ -1,44 +1,17 @@
-<!--
-Note: with PHP we can define all kinds of lojica.
-Here we will be defining the logic of the contact form.
-We will be defining a logic that can determine when we are sending data through the form or when we are receiving it, since we will be using the same form to update the data.
---->
-
-<!--
-Super global variables are variables that are available anywhere to PHP such as:
-$_SERVER, $_POST
--->
-
 <?php
-# var_dump prints the value of the variable we passed to it (SERVER)
-# var_dump($_SERVER);
-# die(); tells PHP to stop here
 
-# SEND DATA Post type request
-# If the request method is post do the following
+require "database.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  # var_dump($_POST);
-  # die();
+  $name = $_POST["name"];
+  $phoneNumber = $_POST["phone_number"];
 
-  # Receiving the data that comes from the form
-  $contact = [
-    "name" => $_POST["name"],
-    "phone_number" => $_POST["phone_number"],
-  ];
+  # Preaparando una sentencia sql de tipo insert para Almacenar los datos en la base de datos (captura lo que viene del form add)
+  $statement = $conn->prepare("INSERT INTO contacts (name, phone_number) VALUES ('$name', '$phoneNumber')");
+  # ejecuatando la sentencia(lo envia a myaql y lo ejecuta)
+  $statement->execute();
+ 
 
-  # saving the data in an associative array
-  # $contacts = [];
-  #We will define the logic of saving the contacts in this way with this we will avoid overwriting the contacts if there are contacts we already obtain the array of all the contacts and then we add the last one
-  if (file_exists("contacts.json")) {
-    $contacts = json_decode(file_get_contents("contacts.json"), true);
-  } else {
-    $contacts = [];
-  }
-
-  $contacts[] = $contact;
-
-  # Stored the data in a file. This creates the json file
-  file_put_contents("contacts.json", json_encode($contacts));
 
   # doing the redirection for when a contact is created
   header("Location: index.php");
