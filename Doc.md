@@ -102,3 +102,35 @@
 
 # CONEXIONES ENTRE PHP Y MYSQL
 
+# SQL injectio
+En el formulario de añadir datos se puede introducir todo tipo de comnado causando daños a la aplicacion 
+12345'); DROP DATABASE contacts_app; --
+En mi variable '$phoneNumber')"); 
+'$phoneNumber --')"); : sustituye todo lo que viene despues de la varName
+
+Esto de lee asi:
+' : cierro yo mismo esa cadena
+) : Cierro el parenteses
+; : Cierro la centencia
+DROP DATABASE contacts_app; : sentencia a ejecutar (pude ser otras como obterner acceso rrot)
+-- : ignora todo lo que venga deppues con un comentario
+
+Si le pasamos en phon number:
+12345'); DROP DATABASE contacts_app; --
+
+Nota: Nunca issertar en la databe una setencia que no haya sido escrita por el developer. es decir hay que verificar todo los datos que nos mandan.
+
+El navegador arrojara algo asi indicando que no existe la db
+PDO Connection Error:SQLSTATE[HY000] [1049] Unknown database 'contacts_app'
+
+# Validacion
+Note: nunca te fie de lo que te enviara el user
+requiere en los input del formulario solo evita que el navegador envie el campo vacio. Pero no solo se haran peticion atraves del navegador se puede hacer con (curl) y otros
+
+Por lo tanto hay que hacer las validaciones pertinentes
+Si le pasa por consola:
+ curl -X POST -d "name=&phone_number=" http://localhost/myPHPcode/php-mastermain/contacts-app/contacts-add.php
+
+ Eto creara un contacto vacio.
+
+
