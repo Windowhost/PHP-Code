@@ -48,5 +48,56 @@
         http://localhost/myPHPcode/php-mastermain/contacts-app/
 
 # 8 Para ejecutar un archivo en php (como en python)
-
     php fileNme.php
+
+# CREAR Y ACEDER A LA DB MYSQL!!!
+    mysql --user root -p
+
+    Luego enter para la contraseña (no la exije por defecto)
+
+    SHOW DATABASES;
+ # crea la base de datos
+    CREATE DATABASE contacts_app;
+# Borrar una base de datos o taba
+    DROP DATABASE databaseName
+    DROP DATABASE tableName
+
+# para usa una base de datos
+    USE databaseName
+
+# Creando una tabla con dos campos uno para nombre y otro para telefono
+    CREATE TABLE contacts (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), phone_number VARCHAR(50));
+
+ # Una ves dentro de una base de datos para ver las tablas
+    SHOW TABLES;
+
+ # Para ver la descripcion de la tabla o estructura
+    DESCRIBE tableName;
+
+    NOtas: Los campos delas tablas tienen que tener un id para identificar cada campo ya que dos campo pueden ser similar en su contenido
+
+ # Añadir informacion a los campos
+    INSERT INTO contacts (name, phone_number) VALUES ("Samuel", "84923456789");
+
+ # para selecionar los campos con la info
+    SELECT id,name,phone_number FROM contacts;
+    SELECT * FROM contacts; 
+
+ # Para actualizar dattos
+    UPDATE contacts SET name = "Antoni" WHERE name = "Samuel";
+
+ # Selecionar un contacto
+    SELECT * FROM contacts WHERE id IN = 1;
+
+# Para borraer
+    DELETE FROM contacts WHERE id = 2;
+
+# Automatizando la creacion de o isercion de los datos en la DB
+    Crea una una carpeta sql
+    Dentro un archivo de congiguracio para insertara los datos de forma automatica 
+# Ejecucion
+    ir al la capeta sql por consola
+    mysql -i root -p
+
+
+
