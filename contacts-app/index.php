@@ -68,22 +68,20 @@ $contacts = $conn->query("SELECT * FROM contacts");
           <div class="col-md-4 mx-auto ">
             <div class="card card-body text-center bg-info">
               <h3>No contacts saved yet</h3>
-              <a href="contacts-add.php ">Add One!</a>
+              <a href="contacts-add.php">Add One!</a>
             </div>
           </div>
         <?php endif ?>
 
-        <!-- This logic creates a card for each contact with their data. This is foreach loop. create a card for each contact-->
         <?php foreach ($contacts as $contact) : ?>
           <div class="col-md-4 mb-3">
             <div class="card text-center">
               <div class="card-body">
-                <!-- The strings that come inside the variable must be the same as the name of the contact form input. -->
+
                 <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>
                 <p class="m-2"><?= $contact["phone_number"] ?></p>
-                <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-
-                <!-- Aqui estaremos borando el contcto atraves del quety strean. Aui le pasamos el id en la url. la sentencia php borra el contacto el cual estamos recorriendo en ese momento -->
+                <!-- Aqui le pasamos al noton edit por query srtran los valores de la base de datos pra editarloso. Al dar click en edit captura los datos -->
+                <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Edit Contact</a>
                 <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>
               </div>
             </div>
