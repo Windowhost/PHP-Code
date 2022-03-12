@@ -1,5 +1,5 @@
 <?php
-# AQUI ya estaremos haciendo uso de los dataos que vienen de la base de datos
+# AQUI ya estaremos haciendo uso de los datos que vienen de la base de datos
 require "database.php";
 #Usando los datos de la tabla contactos
 $contacts = $conn->query("SELECT * FROM contacts");
@@ -82,7 +82,9 @@ $contacts = $conn->query("SELECT * FROM contacts");
                 <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>
                 <p class="m-2"><?= $contact["phone_number"] ?></p>
                 <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-                <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
+
+                <!-- Aqui estaremos borando el contcto atraves del quety strean. Aui le pasamos el id en la url. la sentencia php borra el contacto el cual estamos recorriendo en ese momento -->
+                <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>
               </div>
             </div>
           </div>

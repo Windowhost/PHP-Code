@@ -134,3 +134,21 @@ Si le pasa por consola:
  Eto creara un contacto vacio.
 
 
+# para la peticion DELETE SQL injct
+    Si acedemos a la suguiente peticion dede consola
+    curl http://localhost/myPHPcode/php-mastermain/contacts-app/delete.php?id=500;
+
+    si no existe el id arroja:
+    HTTP 404 NOT FOUND
+
+    Si existe el id lo borra yarroja toda la cabecera del delete file , HTTP/1.1 200 OK
+
+    pero despues de hacer la validaciones en el codigo arroj:  curl HTTP 404 NOT FOUND 
+# Desde la url
+    Si le pasamos la siguiente url con un id existente entonces esto borrara el id:
+    http://localhost/myPHPcode/php-mastermain/contacts-app/delete.php?id=300
+
+    si no existe el id arroja:
+    HTTP 404 NOT FOUND
+
+NOTA: para solucionar esto habria que ha cer un meddeware que proteja la url.
