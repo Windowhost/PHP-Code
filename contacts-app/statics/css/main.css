@@ -1,9 +1,22 @@
 body{
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
    background: rgb(59, 55, 55);
    /* color: #fff; */
 }
 .navbar img{
     width: 1.5rem;
+}
+
+.welcome{
+    background: url("../img/bg-image.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+.welcome-title{
+    color: rgb(126, 245, 29);
+    text-decoration: underline;
 }
 
 .s-card{

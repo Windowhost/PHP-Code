@@ -26,4 +26,4 @@ $conn->prepare("DELETE FROM contacts WHERE id = :id")->execute([":id" => $id]);
 // $stetament->execute([":id" => $id]);
 
 // haciendo la redirecion
-header("Location: index.php");
+header("Location: home.php");

@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ]);
 
     // codigo para la actualizacion del contacto 
-    header("Location: index.php");
+    header("Location: home.php");
   }
 }
 
