@@ -26,6 +26,13 @@ if ($stetament->rowCount() == 0) {
 // pero si existe el id hacemos un fetch y se lo pedimos en formato asociativo
 $contact = $stetament->fetch(PDO::FETCH_ASSOC);
 
+// aqui especificamos que un usuario pueda hacerder a sus contactos y no  a los demas 
+if ($contact["user_id"] !== $_SESSION["user"]["id"]) {
+  http_response_code(403);
+  echo ("HTTP 403 NO AUTHORIZADO");
+  return;
+}
+
 $error = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
