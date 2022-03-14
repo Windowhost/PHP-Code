@@ -1,6 +1,7 @@
 <?php
 
 require "database.php";
+session_start();
 
 // Si el user no esta authenticado lo redirige al login y termina todo
 if (!isset($_SESSION["user"])) {

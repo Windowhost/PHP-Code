@@ -11,13 +11,8 @@ if (!isset($_SESSION["user"])) {
   return;
 }
 
-// var_dump($_COOKIE);
-// var_dump($HTTP_RAW_POST_DATA);
-// var_dump($_SERVER);
-// var_dump($_ENV);
-// die();
-#Usando los datos de la tabla contactos
-$contacts = $conn->query("SELECT * FROM contacts");
+// Aqui especificamos cual nota le pertenece a cual user con : WHERE user_id {$_SESSION["user"]["id"]}
+$contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION["user"]["id"]}");
 ?>
 
 <!-- Reutilizacion del header here  -->

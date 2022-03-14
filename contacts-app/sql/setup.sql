@@ -4,44 +4,32 @@
 -- mysql -u root -p
 -- Para la ejecucin de este comando hay que estar situado en la carpeta sql
 -- source setup.sql
-
 -- Si la DB existe borrala
+
 DROP DATABASE IF EXISTS contacts_app;
+
 
 -- Crea la base de datos
 CREATE DATABASE contacts_app;
 
+
 -- Usa esta  DB
 USE contacts_app;
 
+
 -- Crea la tabla ususarios con los siguientes formato para los datos
 CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100),
-  email VARCHAR(100) UNIQUE,
-  password VARCHAR(100)
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+email VARCHAR(255) UNIQUE,
+password VARCHAR(255)
 );
--- Insertando los siguientes datos
-INSERT INTO
-  users (name, email, password)
-VALUES
-  ("test", "test@gmail.com", "12345");
-# contact 2
-INSERT INTO
-  users (name, email, password)
-VALUES
-  ("elier mercedes", "test1@gmail.com", "12345");
--- Crea la tabla contactos con los siguientes formato para los datos   
+-- Crea la tabla contactos con los siguientes formato para los datos
+-- Añadiendo las lleves foraneas. Eto le indica a la base de datos que cualquier contacto que añadimos estara asociada a un user usan do la clave ajena
 CREATE TABLE contacts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50),
-     phone_number VARCHAR(50)
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(250),
+user_id INT NOT NULL,
+phone_number VARCHAR(250) NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
--- Insertando los siguientes datos
-INSERT INTO contacts (name, phone_number) VALUES (" Esther", "38200000");
-INSERT INTO contacts (name, phone_number) VALUES (" Samuel", "38211111");
-INSERT INTO contacts (name, phone_number) VALUES (" Ariel", "382222222");
-
--- Reinicia la base de datos
--- source setup.sql

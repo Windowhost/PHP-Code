@@ -1,6 +1,7 @@
 <?php
 
 require "database.php";
+session_start();
 // Si el user no esta authenticado lo redirige al login y termina todo
 if (!isset($_SESSION["user"])) {
   header("Location: login.php");
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     # Relgas de seguiridad para evitar sql injection.
     # (captura lo que viene del form add y comprobarlo con la libreia)
     # preparamos la sentencia a recivir :name, :phoneNumber)" . esto hay que sustituirlo por lo valores verdadero. pero hay que sanear dichos valores antes para evitar una injecion sql
-    $statement = $conn->prepare("INSERT INTO contacts (name, phone_number) VALUES (:name, :phone_number)");
+    $statement = $conn->prepare("INSERT INTO contacts (user_id, name, phone_number) VALUES ({$_SESSION['user']['id']}, :name, :phone_number)");
 
     // Con la siguiente sentencia se sanean los datos a recibir. Esta fucion analiza los dato y reduce el potencial de ataque y lo cambia por el valor
     $statement->bindParam(":name", $_POST["name"]);
