@@ -1,6 +1,21 @@
 <?php
 # haciendo uso de los datos que vienen de la base de datos
 require "database.php";
+
+// para iniciar la session
+session_start();
+
+// Si el user no esta authenticado lo redirige al login y termina todo
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
+
+// var_dump($_COOKIE);
+// var_dump($HTTP_RAW_POST_DATA);
+// var_dump($_SERVER);
+// var_dump($_ENV);
+// die();
 #Usando los datos de la tabla contactos
 $contacts = $conn->query("SELECT * FROM contacts");
 ?>

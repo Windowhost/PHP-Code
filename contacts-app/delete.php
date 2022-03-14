@@ -2,6 +2,12 @@
 <?php
 require "database.php";
 
+// Si el user no esta authenticado lo redirige al login y termina todo
+if (!isset($_SESSION["user"])) {
+    header("Location: login.php");
+    return;
+}
+
 // capturando el id que viene el boton de delete con la super global get
 $id = $_GET["id"];
 

@@ -1,6 +1,12 @@
 <?php
 
 require "database.php";
+// Si el user no esta authenticado lo redirige al login y termina todo
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
+
 $error = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

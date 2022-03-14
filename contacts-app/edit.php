@@ -2,6 +2,12 @@
 
 require "database.php";
 
+// Si el user no esta authenticado lo redirige al login y termina todo
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
+
 // Esta peticion get maneja la logica de renderizado de los dos form
 $id = $_GET["id"];
 

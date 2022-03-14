@@ -9,24 +9,43 @@
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                  <!-- <li class="nav-item">
-                      <a class="nav-link" href="./home.php">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="./contacts-add.php">Add Contact</a>
-                  </li> -->
-                  <li class="nav-item">
-                      <a class="nav-link" href="./security-notes.html">Security Notes</a>
-                  </li>
+              <!-- Diferenciando si el user esta logeado o no  -->
+              <div class="d-flex justify-content-between w-100">
+                  <ul class="navbar-nav">
+                      <!-- Si esta logeado muestra estas rutas -->
+                      <?php if (isset($_SESSION["user"])) : ?>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./home.php">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./contacts-add.php">Add Contact</a>
+                          </li>
 
-                  <li class="nav-item">
-                      <a class="nav-link" href="./register.php">Register</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="./login.php">Loging</a>
-                  </li>
-              </ul>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./security-notes.html">Security</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./logout.php">Logout</a>
+                          </li>
+                          <!-- si no esta logeado muestra estas -->
+                      <?php else : ?>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./register.php">Register</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="./login.php">Loging</a>
+                          </li>
+                      <?php endif ?>
+                  </ul>
+
+                  <!-- Este div pinta el email del user. aqui usamos la session para poder saber cual es el emal del user logeado -->
+                  <!-- Primero validamo que exista la session de lo contrario arroja error  -->
+                  <?php if (isset($_SESSION["user"])) : ?>
+                      <div class="p-2 text-white">
+                          </p> <?= $_SESSION["user"]["name"] ?>
+                      </div>
+                  <?php endif ?>
+              </div>
           </div>
       </div>
   </nav>
